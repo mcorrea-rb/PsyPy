@@ -7,6 +7,7 @@ downloadFolder = raiz+"Descargas/"
 imageFolder = raiz+"Imágenes/"
 documentsFolder = raiz+"Documentos/"
 videoFolder = raiz+"Vídeos/"
+
 frontFolder = os.environ.get("FRONT") + "/"
 backFolder = os.environ.get("BACK") + "/"
 
