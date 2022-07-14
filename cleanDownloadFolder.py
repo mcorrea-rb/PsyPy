@@ -1,14 +1,14 @@
 import os
 from zipfile import ZipFile
 
-raiz = "/home/martin/"
+raiz = os.environ.get("HOME") + "/"
 
 downloadFolder = raiz+"Descargas/"
 imageFolder = raiz+"Imágenes/"
 documentsFolder = raiz+"Documentos/"
 videoFolder = raiz+"Vídeos/"
-frontFolder = raiz+"IdeaProjects/fronts/"
-backFolder = raiz+"IdeaProjects/back/"
+frontFolder = os.environ.get("FRONT") + "/"
+backFolder = os.environ.get("BACK") + "/"
 
 if __name__ == "__main__":
     for filename in os.listdir(downloadFolder):
