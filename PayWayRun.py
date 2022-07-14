@@ -19,11 +19,14 @@ def runMicroFront( paths, comnd ):
 
 def verifyProject(project):
     if project == "ui-payway-styleguide":
-        return " "
+        print("sin comando")
+        return ""
     else:
+        print("corre comando" + command[3:])
         return command
 
 def path(project):
+    print("Abriendo " + project)
     return root + project
 
 if __name__ == "__main__":
