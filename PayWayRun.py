@@ -3,13 +3,15 @@ import sys
 
 arguments = sys.argv
 
-raiz = os.environ.get("FRONT") + "/"
+root = os.environ.get("FRONT") + "/"
 command = " -e yarn " + arguments[1]
 
 if __name__ == "__main__":
 
-    for project in os.listdir(raiz):
-        path = raiz + project
+    for project in os.listdir(root):
+
+        path = root + project
+
         if project == "ui-backoffice":
             os.system("tilix -a session-add-down -w " + path + command)
             os.system("tilix -a session-add-down -w " + path + "/layout" + command)
