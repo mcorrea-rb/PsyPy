@@ -2,7 +2,6 @@ import os
 import sys
 
 param = sys.argv[1]
-
 root = os.environ.get("FRONT") + "/"
 
 
@@ -11,38 +10,24 @@ def run(query):
 
 def runMicroFront( structure ):
     newTab = "tilix -a session-add-down -w "
-    paths = structure[0]
-    comnd = structure[1]
-    project = structure[2]
+    paths , comnd , project = structure
 
-    print("_______________________________________")
-    print("·Abriendo " + project)
+    abriendo = "_______________________________________\n·Abriendo " + project
+    correComando = "   -corre comando" + comnd[3:] + "\n_______________________________________\n"
+    npm = "   -corre comando npm run start\n_______________________________________\n"
+
+
+    print(abriendo)
     if project=="ui-payway-styleguide":
-        print("   -sin comando")
-        print("_______________________________________")
-        print("")
-        run(newTab + paths)
-        print("_______________________________________")
-        print("·Abriendo " + project)
-        print("   -sin comando")
-        print("_______________________________________")
-        print("")
-        run(newTab + paths)
+        print(npm + "\n" + abriendo + "\n" + npm)
+        run(newTab + paths + " -e npm run start ")
+        run(newTab + paths + " -e npm run styleguidist ")
     elif project == "ui-backoffice":
-        print("   -corre comando" + comnd[3:])
-        print("_______________________________________")
-        print("")
+        print(correComando + "\n" + abriendo + "/layout" + "\n" + correComando)
         run(newTab + paths + comnd)
-        print("_______________________________________")
-        print("·Abriendo " + project + "/layout")
-        print("   -corre comando" + comnd[3:])
-        print("_______________________________________")
-        print("")
         run(newTab + paths + "/layout" + comnd)
     else:
-        print("   -corre comando" + comnd[3:])
-        print("_______________________________________")
-        print("")
+        print(correComando)
         run(newTab + paths + comnd)
     
 
